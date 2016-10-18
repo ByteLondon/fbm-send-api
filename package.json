@@ -8,12 +8,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/ByteLondon/fpm-send-api.git"
+    "url": "git+ssh://git@github.com/ByteLondon/fbm-send-api.git"
   },
   "author": "Ian Phillips",
   "license": "BSD-3-Clause",
   "bugs": {
-    "url": "https://github.com/ByteLondon/fpm-send-api/issues"
+    "url": "https://github.com/ByteLondon/fbm-send-api/issues"
   },
-  "homepage": "https://github.com/ByteLondon/fpm-send-api#readme"
+  "homepage": "https://github.com/ByteLondon/fbm-send-api#readme"
 }
