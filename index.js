@@ -8,7 +8,7 @@ const ensureLength = (name, maxLen, s) => {
   return s
 }
 
-const prepareImageURI = uri => {
+const prepareURI = uri => {
   if (!isString(uri)) {
     return undefined
   } else {
@@ -41,7 +41,14 @@ const mkTextMessage = (text, options) => Object.assign({
 const mkImageMessage = (url, options) => Object.assign({
   attachment: {
     type: 'image',
-    payload: {url: prepareImageURI(url)}
+    payload: {url: prepareURI(url)}
+  }
+}, options)
+
+const mkVideoMessage = (url, options) => Object.assign({
+  attachment: {
+    type: 'image',
+    payload: {url: prepareURI(url)}
   }
 }, options)
 
@@ -54,7 +61,7 @@ const mkElement = (title, subtitle, imageUrl, ...buttons) => {
   return pickBy({
     title: ensureLength('title', 80, title),
     subtitle: ensureLength('subtitle', 80, subtitle),
-    image_url: prepareImageURI(imageUrl),
+    image_url: prepareURI(imageUrl),
     buttons: isEmpty(b) ? null : b
   })
 }
@@ -89,5 +96,6 @@ module.exports = {
   mkLinkButton,
   mkPhoneNumberButton,
   mkQuickReplies,
-  mkTextMessage
+  mkTextMessage,
+  mkVideoMessage
 }
