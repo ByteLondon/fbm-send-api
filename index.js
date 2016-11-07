@@ -47,7 +47,7 @@ const mkImageMessage = (url, options) => Object.assign({
 
 const mkVideoMessage = (url, options) => Object.assign({
   attachment: {
-    type: 'image',
+    type: 'video',
     payload: {url: prepareURI(url)}
   }
 }, options)
