@@ -3,7 +3,11 @@ const {filter, isEmpty, isString, map, pickBy, truncate} = require('lodash')
 const ensureLength = (name, maxLen, s) => {
   if (isString(s) && s.length > maxLen) {
     const message = `${name} must be ≤ ${maxLen} characters: "${truncate(s)}" (${s.length})`
-    throw new Error(message)
+    if (process.env['NODE_ENV'] === 'production') {
+      console.error(message)
+    } else {
+      throw new Error(message)
+    }
   }
   return s
 }
