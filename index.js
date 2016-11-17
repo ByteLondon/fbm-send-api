@@ -3,10 +3,12 @@ const {filter, isEmpty, isString, map, pickBy, truncate} = require('lodash')
 const ensureLength = (name, maxLen, s) => {
   if (isString(s) && s.length > maxLen) {
     const message = `${name} must be ≤ ${maxLen} characters: "${truncate(s)}" (${s.length})`
-    if (process.env['NODE_ENV'] === 'production') {
-      console.error(message)
-    } else {
-      throw new Error(message)
+    switch (process.env['FB_SEND_API_ON_ERROR']) {
+      case 'console':
+        console.error(message)
+      case 'throw':
+      default:
+        throw new Error(message)
     }
   }
   return s
