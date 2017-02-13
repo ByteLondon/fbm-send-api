@@ -41,7 +41,7 @@ const mkPhoneNumberButton = (title, number, options) => Object.assign({
 }, options)
 
 const mkTextMessage = (text, options) => Object.assign({
-  text: ensureLength('text', 320, text)
+  text: ensureLength('text', 640, text)
 }, options)
 
 const mkImageMessage = (url, options) => Object.assign({
@@ -79,7 +79,7 @@ const mkButtonTemplate = (text, buttons, options) => {
       type: 'template',
       payload: {
         template_type: 'button',
-        text: ensureLength('text', 320, text),
+        text: ensureLength('text', 640, text),
         buttons: isEmpty(b) ? null : b
       }
     }
