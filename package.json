@@ -1,6 +1,6 @@
 {
   "name": "fbm-send-api",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Validating functions for creating Facebook Messenger Send API requests.",
   "main": "./index.js",
   "types": "./index.d.ts",
